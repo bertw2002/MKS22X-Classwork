@@ -10,21 +10,24 @@ public class partition{
     boolean startTrue = false;
     boolean endTrue = false;
     while (start < end){
-      if (data[start] < partit){
+      //finds if number is small enough to move to other side.
+      while (data[start] < partit){
         start++;
-      }else{
-        startTrue = true;
       }
-      if (data[end] > partit){
+      while (data[end] > partit){
         end--;
-      }else{
-        endTrue = true;
       }
-      if ((endTrue && startTrue) && start < end){
+      if (start < end){
         switchPlace(data, start, end);
       }
     }
     //return last position of partition.
     return end;
+  }
+  public static void main(String[] args) {
+    int[] b = new int[] {13, 23, 14, 37, 40, 93, 2, 17, 12, 9, 87, 44, 68};
+    System.out.println("\n" + "partition testing" + "\n");
+    System.out.println(partition(b, 0, 12));
+
   }
 }
